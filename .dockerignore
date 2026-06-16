@@ -10,3 +10,15 @@ backend/.gitignore
 backend/README.md
 backend/scripts
 backend/.DS_Store
+
+# Local development runtime artifacts
+.runtime
+
+# VCS / editor metadata
+.git
+.github
+.idea
+
+# Frontend local artifacts
+frontend/node_modules
+frontend/dist

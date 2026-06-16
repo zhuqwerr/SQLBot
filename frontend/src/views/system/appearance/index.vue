@@ -76,7 +76,7 @@
                   <div class="tips-page">
                     {{
                       t('system.screen_customization_supported', {
-                        msg: loginForm.name || 'SQLBot',
+                        msg: loginForm.name || '智能报表问数平台',
                       })
                     }}
                   </div>
@@ -204,7 +204,7 @@
                   <div class="tips-page">
                     {{
                       t('system.screen_customization_settings', {
-                        msg: loginForm.name || 'SQLBot',
+                        msg: loginForm.name || '智能报表问数平台',
                       })
                     }}
                   </div>
@@ -346,7 +346,7 @@ const changedItemArray = ref<ConfigItem[]>([])
 
 const loginFormRef = ref<FormInstance>()
 const defaultLoginForm = reactive<LoginForm>({
-  name: 'SQLBot',
+  name: '智能报表问数平台',
   slogan: t('common.intelligent_questioning_platform'),
   foot: 'false',
   showSlogan: '0',
