@@ -65,6 +65,7 @@ async def check(session: SessionDep, trans: Trans, ds: CoreDatasource):
 
 
 @router.get("/check/{ds_id}", response_model=bool, summary=f"{PLACEHOLDER_PREFIX}ds_check")
+@require_permissions(permission=SqlbotPermission(type='ds', keyExpression="ds_id"))
 async def check_by_id(session: SessionDep, trans: Trans,
                       ds_id: int = Path(..., description=f"{PLACEHOLDER_PREFIX}ds_id")):
     def inner():
@@ -243,8 +244,9 @@ async def preview_data(session: SessionDep, trans: Trans, current_user: CurrentU
 
 
 # not used
-@router.post("/fieldEnum/{id}", include_in_schema=False)
-async def field_enum(session: SessionDep, id: int):
+@router.post("/fieldEnum/{ds_id}/{id}", include_in_schema=False)
+@require_permissions(permission=SqlbotPermission(type='ds', keyExpression="ds_id"))
+async def field_enum(session: SessionDep, ds_id: int, id: int):
     def inner():
         return fieldEnum(session, id)
 
